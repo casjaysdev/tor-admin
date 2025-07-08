@@ -1,0 +1,66 @@
+<!-- File: templates/index.html -->
+<!-- Purpose: Main dashboard UI -->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tor Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/static/style.css" rel="stylesheet" />
+    <script src="/static/script.js" defer></script>
+  </head>
+  <body class="bg-base-300 text-base-content min-h-screen">
+    <div class="navbar bg-base-200 shadow">
+      <div class="flex-1 px-2">
+        <span class="text-xl font-bold">Tor Admin Panel</span>
+      </div>
+      <div class="flex-none">
+        <form method="POST" action="/logout">
+          <button class="btn btn-sm btn-error">Logout</button>
+        </form>
+      </div>
+    </div>
+
+    <main class="p-4">
+      <h2 class="text-2xl mb-4">Welcome, {{.Username}}</h2>
+
+      <section class="mb-6">
+        <h3 class="text-xl font-semibold">Bandwidth Calculator</h3>
+        <div class="flex items-center gap-4 mt-2">
+          <input id="amount" type="number" class="input input-bordered w-24" placeholder="Amount" />
+          <select id="unit" class="select select-bordered">
+            <option selected>MB</option>
+            <option>GB</option>
+            <option>TB</option>
+          </select>
+          <select id="interval" class="select select-bordered">
+            <option selected>daily</option>
+            <option>weekly</option>
+            <option>monthly</option>
+          </select>
+          <button onclick="calculateBandwidth()" class="btn btn-primary">Calculate</button>
+        </div>
+        <div id="bw-result" class="mt-2 text-lg"></div>
+      </section>
+
+      <section class="mb-6">
+        <h3 class="text-xl font-semibold">Hidden Services</h3>
+        <ul id="onion-list" class="mt-2 list-disc pl-6 text-sm">
+          <li>Loading...</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold">Service Control</h3>
+        <div class="flex gap-2 mt-2">
+          <button class="btn btn-sm" onclick="control('start')">Start</button>
+          <button class="btn btn-sm" onclick="control('stop')">Stop</button>
+          <button class="btn btn-sm" onclick="control('restart')">Restart</button>
+          <button class="btn btn-sm" onclick="control('status')">Status</button>
+        </div>
+        <pre id="svc-output" class="mt-2 bg-base-100 p-2 rounded text-sm"></pre>
+      </section>
+    </main>
+  </body>
+</html>

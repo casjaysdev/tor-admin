@@ -1,0 +1,21 @@
+<!-- File: templates/login.html -->
+<!-- Purpose: Web login screen for admin user -->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - Tor Admin</title>
+    <link href="/static/style.css" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen bg-base-300 flex items-center justify-center">
+    <div class="card w-full max-w-md bg-base-100 shadow-xl p-6">
+      <h2 class="text-2xl font-bold mb-4">Login</h2>
+      <form method="POST" class="flex flex-col gap-4">
+        <input name="username" type="text" placeholder="Username" required class="input input-bordered" />
+        <input name="password" type="password" placeholder="Password" required class="input input-bordered" />
+        <button class="btn btn-primary w-full" type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

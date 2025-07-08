@@ -1,0 +1,38 @@
+<!-- File: templates/config.html -->
+<!-- Purpose: Dynamic Tor settings UI -->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tor Config Settings</title>
+    <link href="/static/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/script.js" defer></script>
+  </head>
+  <body class="bg-base-300 text-base-content min-h-screen">
+    <div class="navbar bg-base-200 shadow">
+      <div class="flex-1 px-2">
+        <span class="text-xl font-bold">Tor Configuration</span>
+      </div>
+      <div class="flex-none">
+        <a href="/" class="btn btn-sm">Back</a>
+      </div>
+    </div>
+
+    <main class="p-4">
+      <form id="config-form" class="space-y-6">
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-semibold">Editable torrc Options</h2>
+          <button type="button" onclick="resetAllToDefaults()" class="btn btn-sm btn-warning">Reset All</button>
+        </div>
+
+        <div id="config-fields" class="space-y-4">
+          <!-- Dynamic fields inserted here by script.js -->
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Save Configuration</button>
+      </form>
+    </main>
+  </body>
+</html>
